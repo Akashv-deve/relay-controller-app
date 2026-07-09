@@ -10,6 +10,7 @@ import 'dart:ui'; // 👇 NEEDED FOR FROSTED GLASS EFFECTS
 import 'dart:math'; // 👇 NEW: NEEDED FOR RANDOM NUMBER GENERATION
 import 'models/smart_scene.dart';
 import 'models/smart_device.dart';
+import 'themes/app_theme.dart';
 
 void main() async { 
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -49,19 +50,8 @@ class SmartRelayAppState extends State<SmartRelayApp> {
       debugShowCheckedModeBanner: false,
       themeMode: _themeMode, 
       
-      theme: ThemeData(
-        brightness: Brightness.light,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.light),
-        scaffoldBackgroundColor: Colors.grey[100],
-        cardColor: Colors.white,
-      ),
-      
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent, brightness: Brightness.dark),
-        scaffoldBackgroundColor: const Color(0xFF121212), 
-        cardColor: const Color(0xFF1E1E1E), 
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
      
       // 👇 NEW ROUTING LOGIC: If no IP is saved, open the Scanner. Otherwise, open the Control Panel!
       home: widget.initialIp == null 
