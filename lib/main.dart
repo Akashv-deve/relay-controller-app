@@ -12,6 +12,7 @@ import 'models/smart_scene.dart';
 import 'models/smart_device.dart';
 import 'themes/app_theme.dart';
 import 'services/udp_broadcast_listener.dart';
+import 'services/hub_service.dart';
 
 void main() async { 
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -2302,11 +2303,11 @@ class _HubDiscoveryScreenState extends State<HubDiscoveryScreen> {
   Future<void> _connectToHub(String name, String rawIp) async {
     _listener.stopListening();
     
-    // Ensure the IP has http:// formatted correctly
-    String finalIp = rawIp.startsWith('http') ? rawIp : 'http://$rawIp';
+   await HubService.saveActiveHubIp(rawIp);
 
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('active_hub_ip', finalIp);
+String finalIp = rawIp.startsWith('http')
+    ? rawIp
+    : 'http://$rawIp';
     
     if (mounted) {
       Navigator.pushReplacement(
