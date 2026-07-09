@@ -11,6 +11,7 @@ import 'dart:math'; // 👇 NEW: NEEDED FOR RANDOM NUMBER GENERATION
 import 'models/smart_scene.dart';
 import 'models/smart_device.dart';
 import 'themes/app_theme.dart';
+import 'services/udp_broadcast_listener.dart';
 
 void main() async { 
   WidgetsFlutterBinding.ensureInitialized(); 
