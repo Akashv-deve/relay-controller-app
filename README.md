@@ -8,6 +8,11 @@
 A modern Flutter application developed during my internship for controlling smart appliances over a local network. The application communicates with a backend server and embedded hardware to discover devices, control relays, execute scenes, manage PWM outputs, and configure connected hardware.
 
 ---
+## 📥 Download APK
+
+[![Download APK](https://img.shields.io/badge/Download-Android%20APK-brightgreen?logo=android)](https://github.com/Akashv-deve/relay-controller-app/releases/latest)
+
+> Download the latest stable Android release of Relay Controller from GitHub Releases.
 
 # Preview
 
